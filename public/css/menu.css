@@ -1,0 +1,80 @@
+.menu {
+    border-style: solid;
+    border-color: #f09491;
+    background-color: #f09491;
+    width: 100%;
+    display: flex;
+}
+
+.opcao {
+    margin-right: 3%;
+    margin-left:  3%;
+    color: white;
+    cursor: pointer;
+    border-style: none;
+
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    color:white;
+    background-color: #f09491;
+    border: 1px solid #f09491;
+    padding: 10px;
+}
+
+.submenu1 {
+    display: none;
+    position: absolute;
+    color:white;
+    background-color: #f09491;
+    border: 1px solid #f09491;
+    padding: 10px;
+}
+
+.submenu2 {
+    display: none;
+    position: absolute;
+    color:white;
+    background-color: #f09491;
+    border: 1px solid #f09491;
+    padding: 10px;
+}
+
+.menuOp {
+    width: 100%;
+    background-color: #f09491;
+    color: white;
+}
+
+.conta{
+    border-style: none;
+    color: white;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: 3%;
+}
+
+.hover {
+    background-color: #c78954;
+}
+
+.capa{
+    border-style: solid;
+    border-color: #f09491;
+    background-color: #f09491;
+    margin-bottom: 1%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.angel{
+    color: white;
+    font-family: "Sofia", sans-serif;
+    font-size: 50px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
