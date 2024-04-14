@@ -16,3 +16,22 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('pag.login', function () {
+    return view('pag/login');
+})->name('pag.login');
+
+Route::get('pag.cadastro', function () {
+    return view('pag/cadastro');
+})->name('pag.cadastro');
+
+Route::post('/salvar-dados', [\App\Http\Controllers\FormularioController::class, 'salvarDados'])->name('salvar.dados');
+Route::post('/login', [\App\Http\Controllers\loginController::class, 'login'])->name('login');
+
+
+
+
+
+
+
+

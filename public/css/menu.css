@@ -1,3 +1,8 @@
+.link {
+    color: white; 
+    text-decoration: none; 
+ }
+
 .menu {
     border-style: solid;
     border-color: #f09491;
