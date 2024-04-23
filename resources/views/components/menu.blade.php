@@ -35,7 +35,7 @@
                 Conta
                 <div class="submenu2">
                 <span class="menuOp"><a href="{{ route('pag.login') }}" class="link">Entrar</a></span></br>
-                    <span class="menuOp">Opção 2</span></br>
+                    <span class="menuOp"><a href="{{ route('pag.fotos') }}">roupas</a></span></br>
                     <span class="menuOp">Opção 3</span>
                 </div>
             </div>

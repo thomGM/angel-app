@@ -25,6 +25,10 @@ Route::get('pag.cadastro', function () {
     return view('pag/cadastro');
 })->name('pag.cadastro');
 
+Route::get('pag.fotos', function () {
+    return view('pag/fotos');
+})->name('pag.fotos');
+
 Route::post('/salvar-dados', [\App\Http\Controllers\FormularioController::class, 'salvarDados'])->name('salvar.dados');
 Route::post('/login', [\App\Http\Controllers\loginController::class, 'login'])->name('login');
 
