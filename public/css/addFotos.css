@@ -9,7 +9,7 @@ textarea {
     box-sizing: border-box;
   }
 
- /* button {
+  button {
     width: 100px;
     background-color: #f09491;
     color: white;
@@ -18,7 +18,7 @@ textarea {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-  }*/
+  }
 
   .select {
     width: 10%;
@@ -30,4 +30,8 @@ textarea {
     box-sizing: border-box;
   }
 
- 
+  header {   
+    position: sticky;   
+    top: 0; 
+    margin-top: 0px;
+}

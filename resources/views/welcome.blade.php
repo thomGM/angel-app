@@ -6,7 +6,9 @@
 
         <title>Angel</title>
     </head>
-    <body>
-        @include('components.menu')
+    <body topmargin="0" leftmargin="0">
+        <header>
+            @include('components.menu')
+        </header>
     </body>
 </html>

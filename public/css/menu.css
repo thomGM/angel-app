@@ -11,6 +11,14 @@
     display: flex;
 }
 
+.linha {
+    border-style: solid;
+    border-color: #fff;
+    background-color: #fff;
+    width: 100%;
+    display: flex;
+}
+
 .opcao {
     margin-right: 3%;
     margin-left:  3%;
@@ -69,11 +77,11 @@
     border-style: solid;
     border-color: #f09491;
     background-color: #f09491;
-    margin-bottom: 1%;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 0px;
 }
 
 .angel{

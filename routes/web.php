@@ -1,6 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\{
+    roupasController,
+    loginController,
+    FormularioController,
+    carrinhoController
+};
 
 /*
 |--------------------------------------------------------------------------
@@ -29,13 +35,18 @@ Route::get('pag.fotos', function () {
     return view('pag/fotos');
 })->name('pag.fotos');
 
-Route::post('/salvar-dados', [\App\Http\Controllers\FormularioController::class, 'salvarDados'])->name('salvar.dados');
-Route::post('/login', [\App\Http\Controllers\loginController::class, 'login'])->name('login');
+Route::get('pag.femininoCamisas', function () {
+    return view('pag/femininoCamisas');
+})->name('pag.femininoCamisas');
 
+Route::get('pag.carrinho', function () {
+    return view('pag/carrinho');
+})->name('pag.carrinho');
 
-
-
-
-
-
+Route::get('/compra/{id}', [roupasController::class, 'compra'])->name('roupas.compra');
+Route::post('/salvar-dados', [FormularioController::class, 'salvarDados'])->name('salvar.dados');
+Route::post('/login', [loginController::class, 'login'])->name('login');
+Route::post('/roupas', [roupasController::class, 'roupas'])->name('roupas');
+Route::get('/roupas', [roupasController::class, 'femininoCamisas'])->name('roupas.femininoCamisas');
+Route::post('/carrinho', [carrinhoController::class, 'adicionar'])->name('carrinho.adicionar');
 

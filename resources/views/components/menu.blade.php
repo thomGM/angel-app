@@ -11,13 +11,14 @@
         <div class="capa">
             <span class="angel">Angel Modas</span>
         </div>
+        <div class="linha"></div>
         <div  class="menu">
             <div class="opcao" id="feminino">
                 Feminino
                 <div class="submenu">
-                    <span class="menuOp">Opção 1</span></br>
-                    <span class="menuOp">Opção 2</span></br>
-                    <span class="menuOp">Opção 3</span>
+                    <span class="menuOp"><a href="{{ route('roupas.femininoCamisas') }}" class="link">Camisas</a></span></br>
+                    <span class="menuOp">Calça</span></br>
+                    <span class="menuOp">Casaco</span>
                 </div>
             </div>
             <div class="opcao" id="masculino">

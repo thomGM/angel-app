@@ -7,8 +7,10 @@
     <link href="{{ asset('/css/cadastro.css') }}" rel="stylesheet">
     <title>Document</title>
 </head>
-<body>
-    @include('components.menu')
+<body topmargin="0" leftmargin="0">
+    <header>
+        @include('components.menu')
+    </header>
     <div class="form">
         <form id="formulario" method="POST" action="{{ route('salvar.dados') }}">
         @csrf
