@@ -21,7 +21,7 @@ use App\Http\Controllers\{
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::get('pag.login', function () {
     return view('pag/login');
@@ -48,5 +48,7 @@ Route::post('/salvar-dados', [FormularioController::class, 'salvarDados'])->name
 Route::post('/login', [loginController::class, 'login'])->name('login');
 Route::post('/roupas', [roupasController::class, 'roupas'])->name('roupas');
 Route::get('/roupas', [roupasController::class, 'femininoCamisas'])->name('roupas.femininoCamisas');
-Route::post('/carrinho', [carrinhoController::class, 'adicionar'])->name('carrinho.adicionar');
+Route::get('/carrinho', [carrinhoController::class, 'adicionar'])->name('carrinho.adicionar');
+Route::post('/carrinho', [carrinhoController::class, 'verifyLogin'])->name('carrinho.verifyLogin');
+
 

@@ -44,27 +44,27 @@
 
             <input type="checkbox" id="all"/>
             <label>Selecionar todos</label> 
-            <input name="cor[]" class="cor" type="checkbox" value="1"/>
+            <input name="cor[]" class="cor" type="checkbox" value="Branco"/>
             <label>Branco</label> 
-            <input name="cor[]" class="cor" type="checkbox" value="2"/>
+            <input name="cor[]" class="cor" type="checkbox" value="Preto"/>
             <label>Preto</label> 
-            <input name="cor[]" class="cor" type="checkbox" value="3"/>
+            <input name="cor[]" class="cor" type="checkbox" value="Vermelho"/>
             <label>Vermelho</label> 
-            <input name="cor[]" class="cor" type="checkbox" value="4"/>
+            <input name="cor[]" class="cor" type="checkbox" value="Azul"/>
             <label>Azul</label> 
-            <input name="cor[]" class="cor" type="checkbox" value="5"/>
+            <input name="cor[]" class="cor" type="checkbox" value="Cinza"/>
             <label>Cinza</label> 
-            <input name="cor[]" class="cor" type="checkbox" value="6"/>
+            <input name="cor[]" class="cor" type="checkbox" value="Marron"/>
             <label>Marron</label> 
-            <input name="cor[]" class="cor" type="checkbox" value="7"/>
+            <input name="cor[]" class="cor" type="checkbox" value="Amarelo"/>
             <label>Amarelo</label> 
-            <input name="cor[]" class="cor" type="checkbox" value="8"/>
+            <input name="cor[]" class="cor" type="checkbox" value="Verde"/>
             <label>Verde</label> 
-            <input name="cor[]" class="cor" type="checkbox" value="9"/>
+            <input name="cor[]" class="cor" type="checkbox" value="Laranja"/>
             <label>Laranja</label> 
-            <input name="cor[]" class="cor" type="checkbox" value="10"/>
+            <input name="cor[]" class="cor" type="checkbox" value="Roxo"/>
             <label>Roxo</label> 
-            <input name="cor[]" class="cor" type="checkbox" value="11"/>
+            <input name="cor[]" class="cor" type="checkbox" value="Rosa"/>
             <label>Rosa</label> </br></br>
 
             <strong>Tamanhos</strong> </br>
@@ -76,7 +76,7 @@
             <label>M</label>
             <input name="tamanho[]" class="tamanho" type="checkbox" value="g"/>
             <label>G</label>
-            <input name="tamanho[]" class="tamanho" type="checkbox" value="g"/>
+            <input name="tamanho[]" class="tamanho" type="checkbox" value="gg"/>
             <label>GG</label>
             <input name="tamanho[]" class="tamanho" type="checkbox" value="xg"/>
             <label>XG</label> </br></br>

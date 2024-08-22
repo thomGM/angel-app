@@ -18,8 +18,6 @@
             <img class="foto" src="{{ asset('storage/img/' . $roupa->img) }}" alt="img" width="200" height="300"></br>
             <div class="descricao"><a href="{{route('roupas.compra', ['id' => $roupa->id_roupa])}}" class="descr">{{ $roupa->descricao }}</a></div>
         </div>
-        @endforeach
-    
-
+        @endforeach    
 </body>    
 </html>
