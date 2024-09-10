@@ -10,7 +10,6 @@
     <header>
         @include('components.menu')
     </header>
-
     @foreach($data as $data)
         <div class="divpai">
             <img src="{{ asset('storage/img/' . $data->img) }}" alt="img" class="img"></br>
@@ -45,9 +44,11 @@
     </div>
     <script src="{{ asset('assets/jquery.js') }}"></script>
     <script src="{{ asset('assets/jquery_form.js') }}"></script>
+    <script src="{{ asset('assets/jquery-ui.js') }}"></script>
     <script src="{{ asset('js/compra.js') }}"></script>
     <script>
-        $(function(){
+        
+        $(document).ready(function() {
             $('form[name="submitCompra"]').submit(function(event) {
                 event.preventDefault();
                 $.ajax({
@@ -61,10 +62,35 @@
                             window.location.href = "{{ route('carrinho.adicionar') }}";
                         } else {
                             console.log(data.messagem);
+                            
+                            const novaDiv = $('<div id="meu-dialogo"></div>');
+                            novaDiv.addClass('border');
+                            $('body').append(novaDiv);
+
+                            $("#meu-dialogo").load('/pag.dialoglogin').dialog({
+                                height: 285,
+                                width: 400,
+                                modal: true,
+                                closeOnEscape: true,
+                                open: function(event, ui) {
+                                    // Esconder o botão de fechar padrão
+                                    $(this).parent().children('.ui-dialog-titlebar').children('.ui-dialog-titlebar-close').hide();
+                                },
+                                create: function(event, ui) {
+                                    // Adicionar o botão "X" ao título
+                                    var titlebar = $(this).parent().children('.ui-dialog-titlebar');
+                                    titlebar.append('<button id="custom-close" style="position:absolute; right:3px; top:13px; color:black; background:rgb(163, 158, 158); border:none; font-size:18px;">X</button>');
+
+                                    // Fechar o diálogo ao clicar no "X"
+                                    $('#custom-close').on('click', function() {
+                                        $('#meu-dialogo').dialog('close');
+                                    });
+                                }
+                            });
                         }
                     }
                 });
-            });
+            });               
         });
     </script>
 </body>
