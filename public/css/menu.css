@@ -1,3 +1,15 @@
+html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+ body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 .link {
     color: white; 
     text-decoration: none; 
@@ -9,6 +21,12 @@
     background-color: #f09491;
     width: 100%;
     display: flex;
+}
+
+@media (max-width: 768px) {
+    .menu {
+        display: none; 
+    }
 }
 
 .linha {
@@ -90,4 +108,12 @@
     font-size: 50px;
     margin-top: 2%;
     margin-bottom: 2%;
+}
+
+@media (max-width: 768px) {
+    .angel {
+        font-size: 30px; /* Reduz o tamanho da fonte para telas menores */
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
 }

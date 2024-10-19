@@ -37,7 +37,7 @@
                 <div class="submenu2">
                 <span class="menuOp"><a href="{{ route('pag.login') }}" class="link">Entrar</a></span></br>
                     <span class="menuOp"><a href="{{ route('pag.fotos') }}">roupas</a></span></br>
-                    <span class="menuOp">Opção 3</span>
+                    <span class="menuOp"><a href="{{ route('pag.carrinho') }}">Carrinho</a></span>
                 </div>
             </div>
         </div>

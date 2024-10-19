@@ -11,7 +11,7 @@ class carrinhoController extends Controller
     public function adicionar(request $request) {
             $id_cliente = $_COOKIE['login'];
 
-            $roupas = DB::select("SELECT r.descricao, r.valor, c.tamanho, c.cor, c.id_carrinho FROM carrinho c
+            $roupas = DB::select("SELECT r.descricao, c.quantidade, r.valor, c.tamanho, r.tamanho as tamanho_todos, c.cor, c.id_carrinho, r.id_roupa, r.img FROM carrinho c
                                 left join roupas r on r.id_roupa = c.id_roupa
                                 where c.id_cadastro = $id_cliente");
 
@@ -27,8 +27,8 @@ class carrinhoController extends Controller
             $cor = $request->input('cor');
             $id_cliente = $_COOKIE['login'];
 
-            DB::insert("INSERT INTO carrinho (cor, id_cadastro, id_roupa, tamanho) values (?,?,?,?)",
-            ["$cor", "$id_cliente", "$id_roupa", "$tamanho"]);
+            DB::insert("INSERT INTO carrinho (cor, id_cadastro, id_roupa, tamanho, quantidade) values (?,?,?,?,?)",
+            ["$cor", "$id_cliente", "$id_roupa", "$tamanho", 1]);
 
             $data = ["status" => 1, "messagem" => $_COOKIE['login']];
         } else {
@@ -38,13 +38,58 @@ class carrinhoController extends Controller
         return response()->json($data);
     }
 
-    public function exluir(request $request) {
+    public function excluir(request $request) {
+
+        $dados = json_decode($request->getContent(), true);
+        $id = $dados['id'];
         
-        if(!empty($request->input('id'))) {
-            $id = $request->input('id');
+        if(!empty($id)) {
+            $delete = DB::delete("DELETE FROM carrinho WHERE id_carrinho = ?", [$id]);
+            if (!empty($delete)) {
+                return response()->json(["status"=> 1]);
+            } else {
+                return response()->json(["status"=> 0, "messagem"=> "Não foi possível excluir, contate nosso suporte. erro: 001"]);
+            }
             
         } else {
             return response()->json(["status"=> 0, "messagem"=> "Não foi possível excluir, contate nosso suporte"]);
         }
+    }
+
+    public function quant(request $request) {
+        $dados = json_decode($request->getContent(), true);
+
+        $id = $dados['id'];
+        $quant = $dados['quant'];
+
+        $update = DB::update("UPDATE carrinho SET quantidade = ? WHERE id_carrinho = ?", [$quant, $id]);
+
+        if (!empty($update)) {
+            return response()->json(["status"=> 1]);
+        } else {
+            return response()->json(["status"=> 0, "messagem"=> "Não foi possível alterar, contate nosso suporte. erro: 002"]);
+        }
+
+    }
+
+    public function tamanho(request $request) {
+        $dados = json_decode($request->getContent(), true);
+
+        $id = $dados['id'];
+        $tamanho = $dados['tamanho'];
+
+        Log::info("UPDATE carrinho SET tamanho =" .$tamanho . " WHERE id_carrinho = " . $id );
+
+        $update = DB::update('UPDATE carrinho SET tamanho = :tamanho WHERE id_carrinho = :id', [
+            'tamanho' =>  strval($tamanho),
+            'id' => $id
+        ]);
+        
+        if (!empty($update)) {
+            return response()->json(["status"=> 1]);
+        } else {
+            return response()->json(["status"=> 0, "messagem"=> "Não foi possível alterar, contate nosso suporte. erro: 002"]);
+        }
+
     }
 }

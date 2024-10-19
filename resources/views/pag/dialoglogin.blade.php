@@ -61,7 +61,7 @@
                     if (data.status == 1) {
                         console.log(data.mensagem);
                         $("#meu-dialogo").dialog("close");
-                        //window.location.href = "{{ route('carrinho.adicionar') }}";
+                        window.location.href = "{{ route('carrinho.adicionar') }}";
                     } else {
                         if ($('.mensagem_erro').length > 0) {
                             $('.mensagem_erro').remove();

@@ -53,6 +53,12 @@ Route::post('/login', [loginController::class, 'login'])->name('login.login');
 Route::post('/roupas', [roupasController::class, 'roupas'])->name('roupas');
 Route::get('/roupas', [roupasController::class, 'femininoCamisas'])->name('roupas.femininoCamisas');
 Route::get('/carrinho', [carrinhoController::class, 'adicionar'])->name('carrinho.adicionar');
-Route::post('/carrinho', [carrinhoController::class, 'verifyLogin'])->name('carrinho.verifyLogin');
+Route::post('/carrinho', [carrinhoController::class, 'excluir'])->name('carrinho.excluir');
+Route::post('/carrinho/verifyLogin', [carrinhoController::class, 'verifyLogin'])->name('carrinho.verifyLogin');
+Route::post('/carrinho/quant', [carrinhoController::class, 'quant'])->name('carrinho.quant');
+Route::post('/carrinho/tamanho', [carrinhoController::class, 'tamanho'])->name('carrinho.tamanho');
+
+
+
 
 

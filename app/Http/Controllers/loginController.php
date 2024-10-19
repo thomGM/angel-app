@@ -25,8 +25,13 @@ class LoginController extends Controller
             $cookie_expire = time() + (86400);
             setcookie($cookie_name, $cookie_value, $cookie_expire, "/"); 
             
-            return view('welcome');
-
+            if ($local == 'dialogLogin') {
+                return response()->json([
+                    'status' => 1
+                ]);
+            } else {
+                return view('welcome');
+            }
        } else {
             $mensagem = "Usuário ou senha inválido";
             if ($local == 'dialogLogin') {
