@@ -10,11 +10,18 @@ class LoginController extends Controller
 {
     public function login(request $request)
     {
-        $dados = json_decode($request->getContent(), true);
-
-        $email = $dados['email'];
-        $senha = $dados['senha'];
-        $local = $dados['local'];
+        //setcookie("login", "", time() - 3600, "/"); //destruir os cookie
+       
+        if ($request->expectsJson()) {
+            $dados = json_decode($request->getContent(), true);
+            $email = $dados['email'];
+            $senha = $dados['senha'];
+            $local = $dados['local'];
+        } else {
+            $email = $request->input('email');
+            $senha = $request->input('senha');
+            $local = $request->input('local');
+        }
 
        $id_cliente = DB::select("SELECT id_cliente FROM clientes where email='$email' AND senha='$senha'");
         

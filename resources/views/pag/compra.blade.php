@@ -15,10 +15,9 @@
             <img src="{{ asset('storage/img/' . $data->img) }}" alt="img" class="img"></br>
         </div>
         <div class="texto">
-        <span class="descricao">{{$data->descricao}}</span></br>
-        <span class="valor">{{$data->descricao}}</span></br>
-        <spam class="descricaoRoupa">{{ $data->descricaoDetalhada }}</spam>
-
+            <span class="descricao">{{$data->descricao}}</span></br>
+            <span class="valor">{{$data->descricao}}</span></br>
+            <span class="descricaoRoupa">{{ $data->descricaoDetalhada }}</span>
         @php
             $tamanho = explode(',', $data->tamanho);
             $cores = explode(',', $data->cores);
@@ -41,7 +40,7 @@
                 <button type="submit" id="comprar" class="botao">Comprar</button>
             </div>
         </form>
-    </div>
+        </div>
     <script src="{{ asset('assets/jquery.js') }}"></script>
     <script src="{{ asset('assets/jquery_form.js') }}"></script>
     <script src="{{ asset('assets/jquery-ui.js') }}"></script>
@@ -63,13 +62,13 @@
                         } else {
                             console.log(data.messagem);
                             
-                            const novaDiv = $('<div id="meu-dialogo"></div>');
+                            const novaDiv = $('<div class="dialogo" id="meu-dialogo"></div>');
                             novaDiv.addClass('border');
                             $('body').append(novaDiv);
 
                             $("#meu-dialogo").load('/pag.dialoglogin').dialog({
-                                height: 285,
-                                width: 400,
+                                height: $(window).height() < 400 ? $(window).height() * 0.8 : 285, 
+                                width: $(window).width() < 500 ? $(window).width() * 0.8 : 400,
                                 modal: true,
                                 closeOnEscape: true,
                                 open: function(event, ui) {
@@ -79,7 +78,7 @@
                                 create: function(event, ui) {
                                     // Adicionar o botão "X" ao título
                                     var titlebar = $(this).parent().children('.ui-dialog-titlebar');
-                                    titlebar.append('<button id="custom-close" style="position:absolute; right:3px; top:13px; color:black; background:rgb(163, 158, 158); border:none; font-size:18px;">X</button>');
+                                    titlebar.append('<button id="custom-close" style="position:absolute; right:3px; top:13px; color:black; background:rgb(163, 158, 158); border:none; font-size:18px; width:10%;">X</button>');
 
                                     // Fechar o diálogo ao clicar no "X"
                                     $('#custom-close').on('click', function() {

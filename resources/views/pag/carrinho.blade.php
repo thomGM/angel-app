@@ -5,9 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{ asset('/css/carrinho.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/fotos.css') }}" rel="stylesheet">
+    <link href="{{ asset('js/carrinho.js') }}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Document</title>
+    <script>
+        var urlCorreiosToken = "{{ route('correios.token') }}";
+    </script>
 </head>
 <body topmargin="0" leftmargin="0" width="100%">
     <header>
@@ -115,7 +119,7 @@
                 <div class="margin">Calculo de Frete</div>
                 <div  class="flex">
                     <input type="text" class="cupon" name="cep" id="cep"/>
-                    <button class="buttonOk">Calcular</button>
+                    <button class="buttonOk" id="calculoFrete">Calcular</button>
                 </div>
                 <div class="margin">
                     Descontos <input type="hidden" id="descontos"/>
@@ -130,7 +134,7 @@
                     <button class="botaoAltura">Finalizar Compra</button>
                 </div>
                 <div class="flex">
-                    <button class="botaoAltura"> Continuar comprando </button>
+                    <button class="botaoAltura" id="continuar"> Continuar comprando </button>
                 </div>
             </div>
         </div>
@@ -268,6 +272,10 @@
             valores();
             soma(0);
         });
+
+        $("#continuar").on('click', function(){
+            window.location.href = "{{ route('welcome') }}";
+        })
     </script>
 </body>
 </html>

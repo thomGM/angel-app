@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{ asset('/css/menu.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>Menu</title>
 </head>
 <body>
@@ -40,6 +41,21 @@
                     <span class="menuOp"><a href="{{ route('pag.carrinho') }}">Carrinho</a></span>
                 </div>
             </div>
+        </div>
+        <div class="menu1">
+            <div class="menu-icon" id="menu-icon">&#9776;</div>
+            <ul class="elementos" id="elementos">
+            <li class="font">
+                <a href="#">
+                    <i class="fas fa-user"></i> Conta
+                </a>
+            </li>
+                <li class="font">Feminino <i class="fas fa-chevron-down"></i></li>
+                <li class="font">Masculino <i class="fas fa-chevron-down"></i></li>
+                <li class="font">Calçados e Acessorios <i class="fas fa-chevron-down"></i></li>
+                <li class="font">Ofertas <i class="fas fa-chevron-down"></i></li>
+                <li class="font">Lançamentos <i class="fas fa-chevron-down"></i></li>
+            </ul>
         </div>
 
         <script src="{{ asset('assets/jquery.js') }}"></script>

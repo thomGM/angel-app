@@ -46,13 +46,13 @@
                 token: $('meta[name="csrf-token"]').attr('content')
             }
 
-            console.log(dados);
+           // console.log(dados);
             
             $.ajax({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                url: "{{ route('login.login') }}",
+                url: "{{ route('login') }}",
                 type: "post",
                 data: JSON.stringify(dados),
                 dataType: 'json',

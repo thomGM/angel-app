@@ -23,12 +23,6 @@ html, body {
     display: flex;
 }
 
-@media (max-width: 768px) {
-    .menu {
-        display: none; 
-    }
-}
-
 .linha {
     border-style: solid;
     border-color: #fff;
@@ -110,10 +104,62 @@ html, body {
     margin-bottom: 2%;
 }
 
+.menu1 {
+    border-style: solid;
+    border-color: #f09491;
+    background-color: #f09491;
+    width: 100%;
+    height: auto;
+    display: flex;
+}
+
+.menu-icon {
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    margin-left: auto;
+  }
+
+.elementos {
+    list-style-type: none;
+    display: none; /* Oculto por padrão */
+    position: absolute; /* Menu suspenso */
+    top: 79px; /* Ajusta a posição abaixo do ícone */
+    right: 0; /* Alinha à direita */
+    background-color: #f09491;
+    color: white;
+    padding: 10px;
+    z-index: 1000; 
+}
+
+.elementos li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+}
+
+.font {
+    font-size: 15px;
+}
+
+
 @media (max-width: 768px) {
     .angel {
         font-size: 30px; /* Reduz o tamanho da fonte para telas menores */
         margin-top: 5px;
         margin-bottom: 5px;
+    }
+    .menu {
+        display: none; 
+    }
+    .linha {
+        display: none;
+    }
+}
+
+@media (min-width: 769px) {
+    .menu1 {
+        display: none;
     }
 }
