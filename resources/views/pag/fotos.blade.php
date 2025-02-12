@@ -5,12 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{ asset('/css/addFotos.css') }}" rel="stylesheet">
     <title>Document</title>
+    <!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select com Checkboxes</title>
+    <style>
+        .custom-select {
+            position: relative;
+            width: 200px;
+            border: 1px solid #ccc;
+            background: #fff;
+            cursor: pointer;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .options {
+            display: none;
+            position: absolute;
+            width: 100%;
+            border: 1px solid #ccc;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 10;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .option {
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .option:hover {
+            background: #f0f0f0;
+        }
+
+        input[type="checkbox"] {
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body  topmargin="0" leftmargin="0">
     <header>
         @include('components.menu')
     </header>
-<div>
+<div class="container">
     <h1> Incluir novas fotos </h1></br>
 
     <form method="POST" enctype="multipart/form-data" action="{{ route('roupas') }}">
@@ -41,52 +86,81 @@
         <strong> Anexar foto </strong></br>
         <input type="file" name="foto" id="foto"></br></br>
         <strong>Cores</strong></br>
+        <div class="custom-select" id="customSelect">
+            Selecione as cores
+            <div class="options" id="optionsList">
+                <label class="option">
+                    <input type="checkbox" id="all"/> Selecionar todos
+                </label>
+                <label class="option">
+                    <input name="cor[]" class="cor" type="checkbox" value="Branco"/> Branco
+                </label>
+                <label class="option">
+                    <input name="cor[]" class="cor" type="checkbox" value="Preto"/> Preto
+                </label>
+                <label class="option">
+                    <input name="cor[]" class="cor" type="checkbox" value="Vermelho"/> Vermelho
+                </label>
+                <label class="option">
+                    <input name="cor[]" class="cor" type="checkbox" value="Azul"/> Azul
+                </label>
+                <label class="option">
+                    <input name="cor[]" class="cor" type="checkbox" value="Cinza"/> Cinza
+                </label>
+                <label class="option">
+                    <input name="cor[]" class="cor" type="checkbox" value="Marron"/> Marron
+                </label>
+                <label class="option">
+                    <input name="cor[]" class="cor" type="checkbox" value="Amarelo"/> Amarelo
+                </label>
+                <label class="option">
+                    <input name="cor[]" class="cor" type="checkbox" value="Verde"/> Verde
+                </label>
+                <label class="option">
+                    <input name="cor[]" class="cor" type="checkbox" value="Laranja"/> Laranja
+                </label>
+                <label class="option">
+                    <input name="cor[]" class="cor" type="checkbox" value="Roxo"/> Roxo
+                </label>
+                <label class="option">
+                    <input name="cor[]" class="cor" type="checkbox" value="Rosa"/> Rosa
+                </label>
+            </div>
+        </div> </br></br>
 
-            <input type="checkbox" id="all"/>
-            <label>Selecionar todos</label> 
-            <input name="cor[]" class="cor" type="checkbox" value="Branco"/>
-            <label>Branco</label> 
-            <input name="cor[]" class="cor" type="checkbox" value="Preto"/>
-            <label>Preto</label> 
-            <input name="cor[]" class="cor" type="checkbox" value="Vermelho"/>
-            <label>Vermelho</label> 
-            <input name="cor[]" class="cor" type="checkbox" value="Azul"/>
-            <label>Azul</label> 
-            <input name="cor[]" class="cor" type="checkbox" value="Cinza"/>
-            <label>Cinza</label> 
-            <input name="cor[]" class="cor" type="checkbox" value="Marron"/>
-            <label>Marron</label> 
-            <input name="cor[]" class="cor" type="checkbox" value="Amarelo"/>
-            <label>Amarelo</label> 
-            <input name="cor[]" class="cor" type="checkbox" value="Verde"/>
-            <label>Verde</label> 
-            <input name="cor[]" class="cor" type="checkbox" value="Laranja"/>
-            <label>Laranja</label> 
-            <input name="cor[]" class="cor" type="checkbox" value="Roxo"/>
-            <label>Roxo</label> 
-            <input name="cor[]" class="cor" type="checkbox" value="Rosa"/>
-            <label>Rosa</label> </br></br>
-
-            <strong>Tamanhos</strong> </br>
-            <input type="checkbox" id="alltamanho"/>
-            <label>Selecionar todos</label>
-            <input name="tamanho[]" class="tamanho" type="checkbox" value="p"/>
-            <label>P</label>
-            <input name="tamanho[]" class="tamanho" type="checkbox" value="m"/>
-            <label>M</label>
-            <input name="tamanho[]" class="tamanho" type="checkbox" value="g"/>
-            <label>G</label>
-            <input name="tamanho[]" class="tamanho" type="checkbox" value="gg"/>
-            <label>GG</label>
-            <input name="tamanho[]" class="tamanho" type="checkbox" value="xg"/>
-            <label>XG</label> </br></br>
+        <strong>Tamanhos</strong> </br>
+        <div class="custom-select" id="customSelectTamanho">
+            Selecione os Tamanhos
+            <div class="options" id="optionsTamanhos">
+                <label class="option">
+                    <input type="checkbox" id="alltamanho"/> Selecionar todos
+                </label>
+                <label class="option">
+                    <input name="tamanho[]" class="tamanho" type="checkbox" value="p"/> P
+                </label>
+                <label class="option">
+                    <input name="tamanho[]" class="tamanho" type="checkbox" value="m"/> M
+                </label>
+                <label class="option">
+                    <input name="tamanho[]" class="tamanho" type="checkbox" value="g"/> G
+                </label>
+                <label class="option">
+                    <input name="tamanho[]" class="tamanho" type="checkbox" value="gg"/> GG
+                </label>
+                <label class="option">
+                    <input name="tamanho[]" class="tamanho" type="checkbox" value="xg"/> XG
+                </label>
+            </div>
+        </div> </br></br>
 
             <strong>Quantidade de peças</strong> </br>
             <input type="number" name="quantidade" id="quantidade" class="select"/>
             </br></br>
 
-            <strong>Valor</strong>
+            <strong>Valor</strong> </br>
             <input type="text" name="valor" id="valor" class="select"/>
+
+            </br></br>
 
         <button type="submit" id="submit">Salvar</button>
     </form>
@@ -95,13 +169,6 @@
 <script src="{{ asset('assets/jquery.js') }}"></script>
 <script>
     $(document).ready(function(){
-        $('#all').click(function(){
-            $('.cor').prop('checked', this.checked);
-        });
-        $('#alltamanho').click(function(){
-            $('.tamanho').prop('checked', this.checked);
-        });
-
         $('#submit').click(function(event) {
             var quant = $('#quantidade').val();
             if (quant > 0) {
@@ -112,6 +179,48 @@
                     event.preventDefault();
                     alert('Ao escolher a quantidade da peça, escolha apenas um tamanho e uma cor');
                 }
+            }
+        });
+        // Abrir e fechar o "select" ao clicar
+        $(document).click(function (event) {
+            if (!$(event.target).closest("#customSelect").length) {
+                $("#optionsList").hide();
+            }
+        });
+
+        // "Selecionar Todos" marca ou desmarca todas as opções
+        $("#all").change(function () {
+            $(".cor").prop("checked", $(this).prop("checked"));
+        });
+
+        // Atualizar "Selecionar Todos" quando as opções individuais forem alteradas
+        $(".cor").change(function () {
+            $("#all").prop($(".cor:checked").length === $(".cor").length);
+        });
+
+        // Fechar a lista ao clicar fora dela
+        $(document).click(function (event) {
+            if (!$(event.target).closest("#customSelect").length) {
+                $("#optionsList").hide();
+            }
+        });
+
+         $("#customSelectTamanho").click(function (event) {
+            $("#optionsTamanhos").toggle(); 
+            event.stopPropagation(); 
+        });
+
+        $("#alltamanho").change(function () {
+            $(".tamanho").prop("checked", $(this).prop("checked"));
+        });
+
+        $(".tamanho").change(function () {
+            $("#alltamanho").prop($(".tamanho:checked").length === $(".tamanho").length);
+        });
+
+        $(document).click(function (event) {
+            if (!$(event.target).closest("#customSelectTamanho").length) {
+                $("#optionsTamanhos").hide();
             }
         });
     });
