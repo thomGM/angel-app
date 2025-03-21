@@ -44,9 +44,10 @@
         </div>
         <div class="menu1">
             <div class="menu-icon" id="menu-icon">&#9776;</div>
+            <div id="teste">
             <ul class="elementos" id="elementos">
             <li class="font">
-                <a href="#">
+                <a href="#" class="href">
                     <i class="fas fa-user"></i> Conta
                 </a>
             </li>
@@ -56,6 +57,7 @@
                 <li class="font">Ofertas <i class="fas fa-chevron-down"></i></li>
                 <li class="font">Lançamentos <i class="fas fa-chevron-down"></i></li>
             </ul>
+            </div>
         </div>
 
         <script src="{{ asset('assets/jquery.js') }}"></script>

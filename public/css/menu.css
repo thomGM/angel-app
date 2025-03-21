@@ -105,8 +105,8 @@ html, body {
 }
 
 .menu1 {
-    border-style: solid;
-    border-color: #f09491;
+    border-style: solid 3px;
+    border-color: #fffefd;
     background-color: #f09491;
     width: 100%;
     height: auto;

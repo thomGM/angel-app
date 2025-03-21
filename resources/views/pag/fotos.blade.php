@@ -222,7 +222,7 @@
             if (!$(event.target).closest("#customSelectTamanho").length) {
                 $("#optionsTamanhos").hide();
             }
-        });
+        }); 
     });
 </script>
 </body>

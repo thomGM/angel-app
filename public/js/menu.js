@@ -17,7 +17,17 @@ $(document).ready(function(){
     $('#conta').hover(function(){
         $('.submenu2').toggle();
     });
-    $('#menu-icon').click(function() {
+    
+    //Menu tela pequena
+    $('#menu-icon').click(function(event) {
         $('#elementos').toggle();
-      });
+        event.stopPropagation(); 
+    });
+    $(document).click(function (event) {
+        //console.log(event.target);
+        if ((!$(event.target).closest(".fa-chevron-down").length) && (!$(event.target).closest(".font").length) && !$(event.target).closest(".href").length) {
+            $("#elementos").hide();
+        }
+    });
+    
 });
