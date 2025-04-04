@@ -40,8 +40,8 @@ Route::get('pag.femininoCamisas', function () {
     return view('pag/femininoCamisas');
 })->name('pag.femininoCamisas');
 
-Route::get('pag.carrinho', function () {
-    return view('pag/carrinho');
+Route::get('/pag/carrinho', function () {
+    return redirect()->route('carrinho.adicionar');
 })->name('pag.carrinho');
 
 Route::get('pag.dialoglogin', function () {
@@ -53,11 +53,13 @@ Route::post('/salvar-dados', [FormularioController::class, 'salvarDados'])->name
 Route::post('/login', [loginController::class, 'login'])->name('login');
 Route::post('/roupas', [roupasController::class, 'roupas'])->name('roupas');
 Route::get('/roupas', [roupasController::class, 'femininoCamisas'])->name('roupas.femininoCamisas');
-Route::get('/carrinho', [carrinhoController::class, 'adicionar'])->name('carrinho.adicionar');
-Route::post('/carrinho', [carrinhoController::class, 'excluir'])->name('carrinho.excluir');
-Route::post('/carrinho/verifyLogin', [carrinhoController::class, 'verifyLogin'])->name('carrinho.verifyLogin');
-Route::post('/carrinho/quant', [carrinhoController::class, 'quant'])->name('carrinho.quant');
-Route::post('/carrinho/tamanho', [carrinhoController::class, 'tamanho'])->name('carrinho.tamanho');
+Route::get('/carrinho/adicionar', [carrinhoController::class, 'adicionar'])->name('carrinho.adicionar');
+Route::prefix('carrinho')->group(function() {
+    Route::post('/excluir', [carrinhoController::class, 'excluir'])->name('carrinho.excluir');
+    Route::post('/verifyLogin', [carrinhoController::class, 'verifyLogin'])->name('carrinho.verifyLogin');
+    Route::post('/quant', [carrinhoController::class, 'quant'])->name('carrinho.quant');
+    Route::post('/tamanho', [carrinhoController::class, 'tamanho'])->name('carrinho.tamanho');
+});
 Route::post('/correios/token', [CorreiosController::class, 'token'])->name('correios.token');
 
 

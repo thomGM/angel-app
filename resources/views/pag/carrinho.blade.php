@@ -20,6 +20,7 @@
         <div class="minha_sacola">
             <strong> <span class="material-icons">shopping_cart</span> MINHA SACOLA </strong>
         </div>
+        @if (!empty($roupas))
         <div class="pai">
             <div class="border">
                 <table width="100%">
@@ -138,6 +139,7 @@
                 </div>
             </div>
         </div>
+        @endif
     <script src="{{ asset('assets/jquery.js') }}"></script>
     <script src="{{ asset('js/carrinho.js') }}"></script>
     <script>

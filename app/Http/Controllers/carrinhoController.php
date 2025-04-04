@@ -9,11 +9,20 @@ use Illuminate\Http\Request;
 class carrinhoController extends Controller
 {
     public function adicionar(request $request) {
-            $id_cliente = $_COOKIE['login'];
 
-            $roupas = DB::select("SELECT r.descricao, c.quantidade, r.valor, c.tamanho, r.tamanho as tamanho_todos, c.cor, c.id_carrinho, r.id_roupa, r.img FROM carrinho c
-                                left join roupas r on r.id_roupa = c.id_roupa
-                                where c.id_cadastro = $id_cliente");
+            $roupas = [];
+
+            if (isset($_COOKIE['login'])) {
+
+                $id_cliente = $_COOKIE['login'];
+
+                $roupas = DB::table('carrinho as c')
+                    ->leftJoin('roupas as r', 'r.id_roupa', '=', 'c.id_roupa')
+                    ->select('r.descricao', 'c.quantidade', 'r.valor', 'c.tamanho', 'r.tamanho as tamanho_todos', 'c.cor', 'c.id_carrinho', 'r.id_roupa', 'r.img')
+                    ->where('c.id_cadastro', '=', $id_cliente)
+                    ->get();
+
+            } 
 
             return view('pag.carrinho', compact('roupas'));
     }
